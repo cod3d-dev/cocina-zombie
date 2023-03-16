@@ -18,7 +18,7 @@
                 <div class="col-md-6">
                   <div class="input-group mb-3">
                     <label for="fecha" class="input-group-text">Fecha:</label>
-                    <span class="form-control">{{ now()->format('d-m-Y') }}</span>
+                    <span class="form-control">{{ now()->format('d-m-Y h:i:s') }}</span>
                   </div>
                 </div>
                 <hr class="my-3">
