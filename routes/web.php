@@ -3,6 +3,8 @@
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontControlador;
+use App\Http\Controllers\ComandaControlador;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,27 +18,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    $visits = Redis::incrby('visits.5.downloads',5);
-
-    echo $visits;
+    return view('inicio');
+   
 });
 
-Route::get('/nuevopedido', function () {
-    // return view('welcome');
-    $fecha = time();
+Route::get('comandas/ultima', [ComandaControlador::class, 'ultima'])->name('comandas/ultima');
+Route::resource('comandas', ComandaControlador::class);
 
-    $totalcomandas = Redis::incr('totalcomandas');
 
-    // dd($totalcomandas);
+// Route::get('/pedido/nuevo', function () {
+//     return view('pedidos.nuevo');
     
-    Redis::hset('comandas:' . $totalcomandas, 'fecha', $fecha);
-    Redis::hset('comandas:' . $totalcomandas, 'cliente', "nombre");
-    
-    // $visits = Redis::incrby('visits.5.downloads',5);
+// });
 
-    // dd($fecha);
-});
+
 
 Route::get('/ultimacomanda', function () {
     // return view('welcome');
@@ -60,3 +55,7 @@ Route::get('/ultimacomanda', function () {
 
     echo $dateTimeUTC;
 });
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
