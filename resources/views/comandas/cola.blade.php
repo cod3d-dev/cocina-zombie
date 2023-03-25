@@ -40,7 +40,7 @@
 
    </div>
    <div class="d-flex justify-content-end mt-4">
-     <a href="{{ url()->previous() }}" class="btn btn-success me-3">Regresar</a>
+     <a href="{{ url('/') }}" class="btn btn-success me-3">Regresar</a>
      <a href="{{ route('cola/procesar/todas') }}" class="btn btn-danger me-3">Procesar</a>
    </div>
 

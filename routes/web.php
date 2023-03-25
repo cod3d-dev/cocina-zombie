@@ -28,3 +28,5 @@ Route::get('comandas/cola', [ComandaControlador::class, 'cola'])->name('comandas
 Route::get('cola/procesar/todas', [ComandaControlador::class, 'procesarTodas'])->name('cola/procesar/todas');
 Route::resource('comandas', ComandaControlador::class);
 
+Route::get('platos/cargar', [ComandaControlador::class, 'cargarPlatos'])->name('platos/cargar');
+

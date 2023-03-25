@@ -1,0 +1,17 @@
+[
+    {
+         "id": "li10",
+         "nombre": "Linguini de Intestinos",
+         "tipo": "normal"
+     },
+     {
+         "id": "as9",
+         "nombre": "Asopado de Ojos",
+         "tipo": "especial"
+     },
+     {
+          "id": "pq2",
+          "nombre": "Piel Quemada",
+          "tipo": "normal"
+      }
+]
