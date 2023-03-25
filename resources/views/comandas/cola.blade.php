@@ -1,7 +1,5 @@
 @extends('layouts.principal')
-@php
-// dd($comanda);  
-@endphp
+
 @inject('carbon', 'Carbon\Carbon')
 
 @section('contenido')
