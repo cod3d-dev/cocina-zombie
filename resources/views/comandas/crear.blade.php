@@ -53,12 +53,14 @@
                   
                 
                 <div class="col-4">
-                  <div class="p-3 plato border border-2 rounded bg-success">
-                    {{ $plato['nombre'] }}
+                  <div class="p-3 plato border border-2 rounded">
+                    {{ $plato['nombre'] }} @if($plato['tipo']=='especial')<span class="badge rounded-pill text-bg-danger">Especial</span>@endif
+
                     <div class="d-block mt-3">
                       <input class="form-control" type="hidden" name="plato[]" value={{ $plato['id'] }}>
                       <input class="form-control" type="number" name="cant[]" min="0">
                     </div>
+                   
                     
                   </div>
                 </div>

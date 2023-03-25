@@ -100,6 +100,8 @@ class ComandaControlador extends Controller
    
     public function ultima()
     {
+        
+       
         $ultimaComanda = Redis::get('comandas:correlativo');
         $comanda = $this->obtenerComanda($ultimaComanda);
         
@@ -283,6 +285,7 @@ class ComandaControlador extends Controller
 
         $comanda = $datosComanda;
         $comanda['platos'] = $platosComanda;
+        
 
         return $comanda;
     }

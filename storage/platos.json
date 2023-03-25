@@ -1,17 +1,32 @@
 [
     {
-         "id": "li10",
-         "nombre": "Linguini de Intestinos",
+         "id": "ie10",
+         "nombre": "Intestinis Ensangrentados",
          "tipo": "normal"
      },
      {
-         "id": "as9",
-         "nombre": "Asopado de Ojos",
+         "id": "hf9",
+         "nombre": "Hot Fingers",
          "tipo": "especial"
      },
      {
-          "id": "pq2",
-          "nombre": "Piel Quemada",
+          "id": "ao2",
+          "nombre": "Asopado de ojos",
           "tipo": "normal"
+      },
+      {
+        "id": "rv1",
+        "nombre": "Rol de vísceras",
+        "tipo": "normal"
+      },
+      {
+        "id": "oa1",
+        "nombre": "Orejas Agridulces",
+        "tipo": "especial"
+      },
+      {
+        "id": "pt1",
+        "nombre": "Pulmón Tempurizado",
+        "tipo": "normal"
       }
 ]

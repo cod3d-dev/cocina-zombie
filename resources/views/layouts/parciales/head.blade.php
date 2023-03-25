@@ -9,3 +9,12 @@
 
 @vite(['resources/css/app.css'])
 @vite(['resources/js/app.js'])
+
+<style type="text/css">
+     .especial {
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          background: #39f;
+     }
+</style>
