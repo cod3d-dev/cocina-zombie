@@ -15,13 +15,13 @@
                 <div class="col-md-6">
                   <div class="input-group mb-3">
                     <label for="fecha" class="input-group-text">Cliente:</label>
-                    <span class="form-control">{{ $comanda['cliente'] }}</span>
+                    <span class="form-control">{{ $comanda['mesa'] }}</span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="input-group mb-3">
                     <label for="fecha" class="input-group-text">Fecha:</label>
-                    <span class="form-control">{{  date("d/m/Y h:i:s", $comanda['fecha']) }}</span>
+                    <span class="form-control">{{  date("d/m/Y h:i:s", $comanda['createdAt']) }}</span>
                   </div>
                 </div>
                 <hr class="my-3">
@@ -30,7 +30,26 @@
 
                   <h3>Pedido</h3>
                   <div class="mt-3">
-                    ¡No tenemos ningún plato en este momento! 
+
+                   
+
+                    <table>
+                      <tr>
+                        <th>Nombre</th>
+                        <th>Cant</th>
+                      </tr>
+                    @foreach ($platos as $plato)
+                      <tr>
+                        <td>
+                          {{ $plato['nombre'] }}
+                        </td>
+                        <td>{{ $plato['cant'] }}</td>
+                      </tr>  
+                    
+                    
+                    @endforeach
+                    </table>
+              
                   </div>
                 
                 </div>

@@ -17,9 +17,9 @@
           </main>
      </div>
      
-     @if (session()->has('success'))
-          <div class="alert alert-success alert-dismissible position-fixed w-100 bottom-0" role="alert">
-               <div>{{ session('success') }}</div>
+     @if (session()->has('tipoMensaje'))
+          <div class="alert alert-{{ session('tipoMensaje') }} alert-dismissible position-fixed w-100 bottom-0 {{ session('tipoMensaje') }}" role="alert">
+               <div>{{ session('mensaje') }}</div>
                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
      @endif
