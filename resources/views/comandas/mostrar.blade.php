@@ -30,6 +30,7 @@
 
 <div class="d-flex justify-content-end mt-3">
   <a href="{{ url('/') }}" class="btn btn-success">Regresar</a>
+  <a href="{{ route('comandas.editar', $comanda['id'] ) }}" class="btn btn-warning ms-2">Editar</a>
 </div>
      
 @endsection

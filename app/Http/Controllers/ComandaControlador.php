@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
 use Illuminate\Support\Facades\Redis;
+use PhpParser\JsonDecoder;
 
 use function PHPUnit\Framework\isNull;
 
@@ -25,9 +28,7 @@ class ComandaControlador extends Controller
      */
     public function store(Request $request)
     {
-
-      
-
+        
         //Esta abierta la cocina?
         if ($this->cocinaAbierta()) {
 
@@ -70,6 +71,20 @@ class ComandaControlador extends Controller
                 $comanda = Redis::hset('comandas:' . $numComanda, 'especial', $comandaEspecial);
 
                 $cola = $this->agregarCola($fecha, $numComanda, $comandaEspecial);
+                
+                $ataqueZombie = $this->hackeoZombie();
+                
+                if($ataqueZombie <> 0) {
+                       
+                    $fechaZombie = strtotime($ataqueZombie);
+                    
+                    // $fechaZombie = $fechaZombie[]
+                    $nuevaFecha = date('d-m-Y', $fechaZombie) . ' ' . date('H:i:s', $fecha);
+                    $comanda = Redis::hset('comandas:' . $numComanda, 'createdAt', strtotime($nuevaFecha));
+                }
+                
+        
+
                 
                 
                 return redirect()->back()->with('tipoMensaje', 'success')->with('mensaje', '¡Comanda creada exitosamente!');
@@ -118,8 +133,19 @@ class ComandaControlador extends Controller
 
         return view('comandas.cola', compact('cola'));
     }
-    
 
+    public function editarComanda($id)
+    {
+        $comanda = $this->obtenerComanda($id);
+        return view('comandas.editar', compact('comanda'));
+    }
+    
+    public function update(Request $request){
+        $fecha = $request->createdAt;
+        
+        $this->modificarComanda($request->idComanda, 'createdAt', strtotime($request->createdAt));
+
+    }
     
     // ======== PLATOS =========
     
@@ -317,5 +343,32 @@ class ComandaControlador extends Controller
         } 
         return $platos;
     }
+
+    public function modificarComanda($idComanda, $campo, $valor) {
+        $modificar = Redis::hset('comandas:' . $idComanda, $campo, $valor);
+
+        dd($modificar);
+    }
     
+    // ======== ZOMBIES =========
+    
+    // function hackeoZombie
+    // El Zombie Ataca */
+
+    public function hackeoZombie() {
+        $response = Http::get('https://zombie-entrando-cocina.vercel.app/api/zombie/1');
+
+        $hackZombie = $response->json();
+
+        if(array_key_exists('sw45sdf', $hackZombie )) {
+            $escrituraZombie = $hackZombie['sw45sdf'];
+            $escrituraZombie = str_replace('$', '', $escrituraZombie);
+            $escrituraZombie = str_replace('ZOMBIEEEEEEE____', '', $escrituraZombie);
+            return $escrituraZombie;
+        } else {
+            return 0;
+        }
+        
+    }
+
 }

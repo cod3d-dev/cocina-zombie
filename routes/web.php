@@ -30,4 +30,5 @@ Route::get('cola/procesar/todas', [ComandaControlador::class, 'procesarTodas'])-
 Route::resource('comandas', ComandaControlador::class);
 
 Route::get('platos/cargar', [ComandaControlador::class, 'cargarPlatos'])->name('platos/cargar');
-
+Route::get('comandas/editar/{id}', [ComandaControlador::class, 'editarComanda'])->name('comandas.editar');
+Route::post('comandas/update', [ComandaControlador::class, 'update'])->name('comandas.update');
