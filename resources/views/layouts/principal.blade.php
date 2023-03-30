@@ -5,7 +5,7 @@
 </head>
 <body>
     
-     <div class="col-lg-8 mx-auto p-3 py-md-5">
+     <div class="col-lg-12 mx-auto p-3 py-md-5">
           @include('layouts.parciales.header')
 
           
@@ -25,5 +25,6 @@
      @endif
     @include('layouts.parciales.footer-scripts')
     
+    @livewireScripts
 </body>
 </html>

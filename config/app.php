@@ -210,6 +210,12 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Cript' => App\Helpers\Cript::class,
+        'Cmda' => App\Helpers\Cmda::class,
+        'Cola' => App\Helpers\Cola::class,
+        'Platos' => App\Helpers\Platos::class,
+        'Zombie' => App\Helpers\Zombie::class,
+        // 'Cript2' => App\Helpers\Cript2::class,
     ])->toArray(),
 
 ];

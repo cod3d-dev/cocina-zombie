@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('comandas/mostrar/{id}', [ComandaControlador::class, 'show'])->name('comandas.show');
 Route::get('ultima', [ComandaControlador::class, 'ultima'])->name('comandas/ultima');
 Route::get('cola', [ComandaControlador::class, 'cola'])->name('comandas/cola');
-Route::get('cola', [ComandaControlador::class, 'cola'])->name('comandas/cola');
+Route::get('cola3', [ComandaControlador::class, 'cola3'])->name('comandas/cola3');
 Route::get('cola/procesar/todas', [ComandaControlador::class, 'procesarTodas'])->name('cola/procesar/todas');
 Route::resource('comandas', ComandaControlador::class);
 
