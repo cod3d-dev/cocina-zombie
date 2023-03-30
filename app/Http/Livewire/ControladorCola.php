@@ -33,6 +33,11 @@ class ControladorCola extends Component
         $this->mount();
     }
 
+    public function procesarTodas() {
+        $procesar = Cola::procesarTodas();
+        $this->mount();
+    }
+
     public function revisarHackeo() {
         foreach($this->cola as $i => $comanda) {
             if($comanda['createdAt']<>Cript::decriptar($comanda['createdAtCrip'])) {

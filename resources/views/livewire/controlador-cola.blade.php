@@ -84,6 +84,7 @@
                 <a href="#" wire:click="revisarHackeo" class="btn btn-warning mt-3 w-100">Revisar</a>
                 <a href="#" wire:click="corregirHackeo" class="btn btn-success mt-3 w-100">Corregir</a>
                 <a href="#" wire:click="procesarCola" class="btn btn-info mt-3 w-100">Procesar</a>
+                <a href="#" wire:click="procesarTodas" class="btn btn-info mt-3 w-100">Procesar Todas</a>
                 <a href="{{ url('/') }}" class="btn btn-success w-100 mt-3">Regresar</a>
                 
                 
